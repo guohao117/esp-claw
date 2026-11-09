@@ -2,4 +2,6 @@
 dependencies:
   display_service:
     path: ../../common/display_service
+  font_service:
+    path: ../../common/font_service
   espressif/esp_lv_eaf_player: "^0.3"

@@ -17,6 +17,7 @@
 #include "freertos/task.h"
 #include "lvgl.h"
 #include "display_service.h"
+#include "font_service.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -219,7 +220,8 @@ typedef struct {
     size_t launcher_page_count;
     lv_font_t *font;
     lv_font_t *clock_font;
-    uint8_t *font_data;
+    font_service_handle_t font_blob;
+    const uint8_t *font_data;
     size_t font_data_size;
     uint32_t width;
     uint32_t height;

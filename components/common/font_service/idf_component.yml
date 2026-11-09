@@ -1,0 +1,4 @@
+## IDF Component Manager Manifest File
+dependencies:
+  claw_core:
+    path: ../../claw_modules/claw_core

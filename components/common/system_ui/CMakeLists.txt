@@ -15,6 +15,7 @@ idf_component_register(
         esp_board_manager
         esp_lcd
         esp_timer
+        font_service
         lvgl
     PRIV_REQUIRES
         esp_driver_ledc

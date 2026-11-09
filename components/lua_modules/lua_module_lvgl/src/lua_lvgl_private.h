@@ -23,6 +23,7 @@
 #include "esp_lcd_panel_ops.h"
 #include "esp_log.h"
 #include "esp_timer.h"
+#include "font_service.h"
 #include "freertos/FreeRTOS.h"
 #include "freertos/semphr.h"
 #include "freertos/task.h"
@@ -184,7 +185,7 @@ typedef struct lua_lvgl_font_ud lua_lvgl_font_ud_t;
 
 typedef struct lua_lvgl_font_record {
     lv_font_t *font;
-    uint8_t *font_data;
+    font_service_handle_t font_blob;
     lua_lvgl_font_ud_t *ud;
     uint32_t generation;
     bool valid;

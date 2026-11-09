@@ -8,4 +8,6 @@ dependencies:
     path: ../app_registry
   display_service:
     path: ../display_service
+  font_service:
+    path: ../font_service
   espressif/esp_new_jpeg: "*"

@@ -1,0 +1,9 @@
+idf_component_register(
+    SRCS
+        "src/font_service.c"
+    INCLUDE_DIRS
+        "include"
+    REQUIRES
+        claw_core
+        freertos
+)

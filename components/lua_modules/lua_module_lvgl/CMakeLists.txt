@@ -25,5 +25,6 @@ idf_component_register(
         display_service
         esp_lcd
         esp_timer
+        font_service
         lvgl
 )
