@@ -242,13 +242,13 @@ void font_service_release(font_service_handle_t handle)
     while (*cursor != NULL) {
         struct font_service_blob *cur = *cursor;
         if (cur == handle) {
+            char path_copy[FONT_SERVICE_PATH_MAX];
+            strlcpy(path_copy, cur->path, sizeof(path_copy));
             if (cur->ref_count > 0) {
                 cur->ref_count--;
             }
             if (cur->ref_count == 0) {
                 *cursor = cur->next;
-                char path_copy[FONT_SERVICE_PATH_MAX];
-                strlcpy(path_copy, cur->path, sizeof(path_copy));
                 size_t size = cur->size;
                 free(cur->data);
                 free(cur);
@@ -258,7 +258,7 @@ void font_service_release(font_service_handle_t handle)
             }
             size_t refs = cur->ref_count;
             xSemaphoreGive(s_lock);
-            ESP_LOGI(TAG, "released '%s' (refs=%u)", cur->path, (unsigned)refs);
+            ESP_LOGI(TAG, "released '%s' (refs=%u)", path_copy, (unsigned)refs);
             return;
         }
         cursor = &cur->next;
